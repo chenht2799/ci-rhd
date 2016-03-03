@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Study_model extends MY_Model
+class Study_service extends MY_Service
 {
-	protected $group_name = 'study_master';
 
 	public function __construct($param = array())
 	{
@@ -12,7 +11,7 @@ class Study_model extends MY_Model
 
 	public function fetchUserList()
 	{
-		$a = $this->db->from('user')->get()->row_array();
-		print_r($a);
+		$this->load->model('study_model');
+		$this->study_model->fetchUserList();
 	}
 }
